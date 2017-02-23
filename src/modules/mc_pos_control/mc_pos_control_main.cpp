@@ -1696,7 +1696,7 @@ MulticopterPositionControl::control_position(float dt)
 	 * for now we use the home altitude and assume that our Z coordinate
 	 * is initialized close to home.
 	 */
-	bool close_to_ground = (-_pos(2) - _home_pos.z)  < _manual_land_alt.get();
+	bool close_to_ground = (-_pos(2) + _home_pos.z)  < _manual_land_alt.get();
 
 	if (close_to_ground && (_vel_sp(2) > _params.land_speed)) {
 		_vel_sp(2) = _params.land_speed;
